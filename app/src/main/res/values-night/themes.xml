@@ -12,5 +12,21 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
+
+
+        <item name="android:textViewStyle">@style/OpenSansTextViewStyle</item>
+        <item name="android:buttonStyle">@style/OpenSansButtonStyle</item>
+        <item name="android:checkboxStyle">@style/OpenSansCheckBoxStyle</item>
+    </style>
+
+    <style name="OpenSansTextViewStyle" parent="android:Widget.TextView">
+        <item name="android:fontFamily">sans-serif-light</item>
+    </style>
+    <style name="OpenSansCheckBoxStyle" parent="android:Widget.CompoundButton.CheckBox">
+        <item name="android:fontFamily">sans-serif-light</item>
+    </style>
+
+    <style name="OpenSansButtonStyle" parent="android:Widget.Holo.Button">
+        <item name="android:fontFamily">sans-serif-light</item>
     </style>
 </resources>

@@ -22,10 +22,10 @@
     <androidx.appcompat.widget.LinearLayoutCompat
         android:id="@+id/linearLayoutCompat"
         android:layout_width="0dp"
-        android:layout_height="70dp"
-        android:layout_marginBottom="2dp"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
         android:orientation="vertical"
-        android:weightSum="2"
+        android:weightSum="3"
         app:layout_constraintBottom_toTopOf="@+id/btnUpdate"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
@@ -47,7 +47,7 @@
 
                 android:text="@string/added_date"
                 android:textColor="@color/black"
-                android:textSize="18dp" />
+                android:textSize="18sp" />
 
             <TextView
                 android:id="@+id/txtDate"
@@ -58,7 +58,7 @@
                 android:layout_gravity="center_vertical"
                 android:textColor="@color/black"
 
-                android:textSize="14dp" />
+                android:textSize="18sp" />
 
         </LinearLayout>
 
@@ -80,7 +80,7 @@
                 android:layout_gravity="center_vertical"
 
                 android:textColor="@color/black"
-                android:textSize="18dp" />
+                android:textSize="18sp" />
 
             <TextView
                 android:id="@+id/txtAddress"
@@ -91,7 +91,27 @@
 
                 android:layout_gravity="center_vertical"
                 android:textColor="@color/black"
-                android:textSize="14dp" />
+                android:textSize="18sp" />
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+
+            android:weightSum="5">
+
+            <CheckBox
+                android:id="@+id/chkVisit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/visit"
+                android:layout_marginLeft="10sp"
+
+                android:layout_gravity="center_vertical"
+                android:textColor="@color/black"
+                android:textSize="18sp"/>
 
         </LinearLayout>
 
@@ -101,11 +121,12 @@
         android:id="@+id/btnUpdate"
         android:layout_width="0dp"
         android:layout_height="50dp"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
+        android:layout_marginLeft="70dp"
+        android:layout_marginRight="70dp"
         android:layout_marginBottom="5dp"
         android:layout_weight="1"
-        android:text="Update"
+        android:text="@string/update"
+        android:drawableLeft="@drawable/ic_baseline_edit_24"
         android:textAllCaps="false"
         android:textColor="@color/white"
         android:backgroundTint="@color/mild_green"

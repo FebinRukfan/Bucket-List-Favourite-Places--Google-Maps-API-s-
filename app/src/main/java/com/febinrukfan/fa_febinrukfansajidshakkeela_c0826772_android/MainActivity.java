@@ -102,7 +102,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                     mMap.setOnMyLocationChangeListener(new GoogleMap.OnMyLocationChangeListener() {
                         @Override
                         public void onMyLocationChange(Location arg0) {
-                            googleMap.addMarker(new MarkerOptions().position(new LatLng(arg0.getLatitude(), arg0.getLongitude())).title("It's Me!"));
+                            googleMap.addMarker(new MarkerOptions().position(new LatLng(arg0.getLatitude(), arg0.getLongitude())).title("Your Location"));
                             CameraPosition cameraPosition = new CameraPosition.Builder().target(new LatLng(arg0.getLatitude(), arg0.getLongitude())).zoom(12).build();
                             googleMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
 
@@ -137,6 +137,9 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                         Toast.makeText(MainActivity.this, "New Place added", Toast.LENGTH_SHORT).show();
                         clearAllData();
                     }
+
+                }else {
+                    Toast.makeText(MainActivity.this, "Search a place to add", Toast.LENGTH_SHORT).show();
 
                 }
             }

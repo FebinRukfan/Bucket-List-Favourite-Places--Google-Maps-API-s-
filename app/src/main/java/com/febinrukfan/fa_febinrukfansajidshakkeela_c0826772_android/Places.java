@@ -66,7 +66,6 @@ public class Places {
     @ColumnInfo(name = "id")
     private long id;
 
-    @NonNull
     @ColumnInfo(name = "places_name")
     private String places_name;
 

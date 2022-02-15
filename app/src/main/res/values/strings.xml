@@ -7,5 +7,7 @@
     <string name="name">Name</string>
     <string name="address">Address</string>
     <string name="added_date">Added Date</string>
+    <string name="update">Update</string>
+    <string name="visit">Check here if you have already visited</string>
 
 </resources>
