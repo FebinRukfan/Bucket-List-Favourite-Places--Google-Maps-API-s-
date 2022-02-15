@@ -7,15 +7,18 @@ import androidx.room.Insert;
 import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
 
+import java.util.ArrayList;
+import java.util.List;
+
 
 @Dao
 public abstract class PlacesDao {
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     public abstract void insert(Places places);
-//
-//    @Query("SELECT * FROM product_table ORDER BY product_name ASC")
-//    public abstract LiveData<List<Product>> getAllProducts();
+
+    @Query("SELECT * FROM places_table ORDER BY places_name ASC")
+    public abstract List<Places> getAllPlaces();
 //
 //    @Query("SELECT * FROM product_table WHERE product_id=:id")
 //    public abstract LiveData<List<Product>> getProductById(int id);
@@ -25,7 +28,9 @@ public abstract class PlacesDao {
 //
     @Query("DELETE FROM places_table")
     public abstract void deleteAll();
-//
+
+    @Query("SELECT places_id FROM places_table WHERE places_id=:place_id")
+    public abstract String  checkPlaceId(String place_id);//
 //   @Query("DELETE FROM product_table WHERE product_id=:id")
 //    public abstract void deletebyid(int id);
 //

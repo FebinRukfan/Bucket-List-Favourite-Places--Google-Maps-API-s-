@@ -17,6 +17,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.SearchView;
+import android.widget.Toast;
 
 import com.febinrukfan.fa_febinrukfansajidshakkeela_c0826772_android.databinding.ActivityMainBinding;
 import com.google.android.gms.common.api.Status;
@@ -143,27 +144,51 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
             @Override
             public void onClick(View view) {
                 if(pLat!=null){
-                    com.febinrukfan.fa_febinrukfansajidshakkeela_c0826772_android.Places places = new com.febinrukfan.fa_febinrukfansajidshakkeela_c0826772_android.Places();
-                    places.setPlaces_id(pPlaceId);
-                    places.setPlaces_name(pName);
-                    places.setPlaces_address(pAddrss);
-                    places.setPlaces_latitude(pLat);
-                    places.setPlaces_longitude(pLong);
-                    Date c = Calendar.getInstance().getTime();
-                    System.out.println("Current time => " + c);
+                    if(database.placesDao().checkPlaceId(pPlaceId)!=null){
+                        Toast.makeText(MainActivity.this, "Same Place already exists", Toast.LENGTH_SHORT).show();
+                    }else {
+                        com.febinrukfan.fa_febinrukfansajidshakkeela_c0826772_android.Places places = new com.febinrukfan.fa_febinrukfansajidshakkeela_c0826772_android.Places();
+                        places.setPlaces_id(pPlaceId);
+                        places.setPlaces_name(pName);
+                        places.setPlaces_address(pAddrss);
+                        places.setPlaces_latitude(pLat);
+                        places.setPlaces_longitude(pLong);
+                        Date c = Calendar.getInstance().getTime();
+                        System.out.println("Current time => " + c);
 
-                    SimpleDateFormat df = new SimpleDateFormat("dd-MMM-yyyy", Locale.getDefault());
-                    String formattedDate = df.format(c);
+                        SimpleDateFormat df = new SimpleDateFormat("dd-MMM-yyyy", Locale.getDefault());
+                        String formattedDate = df.format(c);
 
-                    places.setAdded_date(formattedDate);
-                    places.setPlaces_visited(false);
+                        places.setAdded_date(formattedDate);
+                        places.setPlaces_visited(false);
 
-                    database.placesDao().insert(places);
+                        database.placesDao().insert(places);
+                        Toast.makeText(MainActivity.this, "New Place added", Toast.LENGTH_SHORT).show();
+                        clearAllData();
+                    }
 
                 }
             }
         });
 
+        binding.btnFav.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this,FavouriteListActivity.class));
+            }
+        });
+
+    }
+
+    private void clearAllData() {
+
+        pName = null;
+        pAddrss = null;
+        pPlaceId = null;
+        pLat = null;
+        pLong = null;
+        pDate = null;
+        pVisited = null;
     }
 
     @Override
