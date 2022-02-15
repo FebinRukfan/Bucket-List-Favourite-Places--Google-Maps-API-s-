@@ -4,5 +4,8 @@
     <string name="add_new">Add New</string>
     <string name="favourites">Favourites</string>
     <string name="title_activity_maps">MapsActivity</string>
+    <string name="name">Name</string>
+    <string name="address">Address</string>
+    <string name="added_date">Added Date</string>
 
 </resources>

@@ -31,9 +31,12 @@ public abstract class PlacesDao {
 
     @Query("SELECT places_id FROM places_table WHERE places_id=:place_id")
     public abstract String  checkPlaceId(String place_id);//
-//   @Query("DELETE FROM product_table WHERE product_id=:id")
-//    public abstract void deletebyid(int id);
-//
+
+    @Query("SELECT places_name FROM places_table WHERE id=:place_id")
+    public abstract String  getPlaceName(String place_id);
+
+    @Query("SELECT * FROM places_table WHERE id=:place_id")
+    public abstract Places  getPlaceDetails(String place_id);
 //
 //    @Query("UPDATE product_table SET product_name=:name,product_desc=:desc,product_price=:price,provider_lat=:lat,provider_long=:lon WHERE product_id =:id")
 //    public abstract void update(int id, String name, String desc, Double price, Double lat, Double lon);
