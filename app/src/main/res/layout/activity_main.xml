@@ -14,7 +14,7 @@
         android:id="@+id/mapView"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginBottom="0dp"
+        android:layout_marginBottom="10dp"
         app:layout_constraintBottom_toTopOf="@+id/btnAddNew"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -32,6 +32,7 @@
         android:text="@string/add_new"
         android:textColor="@color/black"
         android:textSize="18sp"
+        android:gravity="center|center_vertical"
 
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/btnFav"
@@ -45,9 +46,9 @@
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="10dp"
         android:textSize="18sp"
-        android:backgroundTint="@color/orange_022"
         android:textAllCaps="false"
-
+        android:backgroundTint="@color/orange_022"
+        android:gravity="start|center_vertical"
         android:drawableLeft="@drawable/ic_baseline_favorite_24"
         android:text="@string/favourites"
         android:textColor="@color/black"

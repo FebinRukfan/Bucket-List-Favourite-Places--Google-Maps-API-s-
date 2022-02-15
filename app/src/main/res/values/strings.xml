@@ -3,5 +3,6 @@
     <string name="api_key">AIzaSyC-nA_5kZkEl_6kb7FeT8jgAPhPAvP0Utw</string>
     <string name="add_new">Add New</string>
     <string name="favourites">Favourites</string>
+    <string name="title_activity_maps">MapsActivity</string>
 
 </resources>
