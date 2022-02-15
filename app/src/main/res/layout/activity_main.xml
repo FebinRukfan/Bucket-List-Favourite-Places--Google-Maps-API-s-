@@ -48,7 +48,7 @@
         android:textSize="18sp"
         android:textAllCaps="false"
         android:backgroundTint="@color/orange_022"
-        android:gravity="start|center_vertical"
+        android:gravity="center|center_vertical"
         android:drawableLeft="@drawable/ic_baseline_favorite_24"
         android:text="@string/favourites"
         android:textColor="@color/black"

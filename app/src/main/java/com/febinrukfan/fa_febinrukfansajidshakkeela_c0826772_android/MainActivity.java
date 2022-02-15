@@ -38,8 +38,12 @@ import com.google.android.libraries.places.widget.AutocompleteSupportFragment;
 import com.google.android.libraries.places.widget.listener.PlaceSelectionListener;
 import com.google.android.libraries.places.widget.model.AutocompleteActivityMode;
 
+import java.text.SimpleDateFormat;
 import java.util.Arrays;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity implements OnMapReadyCallback {
 
@@ -49,6 +53,10 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
     ActivityMainBinding binding;
 
     private GoogleMap googleMap;
+
+    private String pName,pAddrss,pPlaceId,pDate;
+    private Double pLat,pLong;
+    private Boolean pVisited;
 
 
     @Override
@@ -92,6 +100,8 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
 //                Manifest.permission.ACCESS_COARSE_LOCATION
 //        });
 
+        PlacesRoomDb database = PlacesRoomDb.getInstance(this);
+
         binding.mapView.onCreate(savedInstanceState);
 
         binding.mapView.onResume();
@@ -116,6 +126,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                 // For zooming automatically to the location of the marker
 
                 if (mMap != null) {
+
                     mMap.setOnMyLocationChangeListener(new GoogleMap.OnMyLocationChangeListener() {
                         @Override
                         public void onMyLocationChange(Location arg0) {
@@ -125,6 +136,30 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
 
                         }
                     });
+                }
+            }
+        });
+        binding.btnAddNew.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(pLat!=null){
+                    com.febinrukfan.fa_febinrukfansajidshakkeela_c0826772_android.Places places = new com.febinrukfan.fa_febinrukfansajidshakkeela_c0826772_android.Places();
+                    places.setPlaces_id(pPlaceId);
+                    places.setPlaces_name(pName);
+                    places.setPlaces_address(pAddrss);
+                    places.setPlaces_latitude(pLat);
+                    places.setPlaces_longitude(pLong);
+                    Date c = Calendar.getInstance().getTime();
+                    System.out.println("Current time => " + c);
+
+                    SimpleDateFormat df = new SimpleDateFormat("dd-MMM-yyyy", Locale.getDefault());
+                    String formattedDate = df.format(c);
+
+                    places.setAdded_date(formattedDate);
+                    places.setPlaces_visited(false);
+
+                    database.placesDao().insert(places);
+
                 }
             }
         });
@@ -180,6 +215,13 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                             googleMap.addMarker(new MarkerOptions().position(place.getLatLng()).title(place.getName()));
                             CameraPosition cameraPosition = new CameraPosition.Builder().target(place.getLatLng()).zoom(12).build();
                             googleMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
+
+                            pName = place.getName();
+                            pAddrss = place.getAddress();
+                            pPlaceId = place.getId();
+                            pLat = place.getLatLng().latitude;
+                            pLong = place.getLatLng().longitude;
+
 
                         }
                     });
