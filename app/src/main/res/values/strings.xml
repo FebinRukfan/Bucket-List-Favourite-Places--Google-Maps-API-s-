@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Places</string>
+    <string name="api_key">AIzaSyAjuQ3cOyl0wByu87cfyW-RVyUtQNhcvV4</string>
+
 </resources>
