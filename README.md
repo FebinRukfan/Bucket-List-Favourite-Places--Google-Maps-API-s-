@@ -11,6 +11,6 @@
 
 
 
-  Directions               |   Update Current place    |
-:-------------------------:|:-------------------------:|
+  Directions               |   Update Current place    | 
+:-------------------------:|:-------------------------:|:-------------------------:
 ![](https://github.com/FebinRukfan/FA_FebinRukfanSajidShakkeela_C0826772_Android/blob/screen_shots/screen_shots/Screenshot_20220215_225856.png?raw=true)|![](https://github.com/FebinRukfan/FA_FebinRukfanSajidShakkeela_C0826772_Android/blob/screen_shots/screen_shots/Screenshot_20220216_001402.png?raw=true)|![]
