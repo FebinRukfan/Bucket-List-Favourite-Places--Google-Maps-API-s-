@@ -1,4 +1,4 @@
-package com.febinrukfan.fa_febinrukfansajidshakkeela_c0826772_android;// Created by FebinRukfan on 15-02-2022.
+package com.febinrukfan.fa_febinrukfansajidshakkeela_c0826772_android.adapter;// Created by FebinRukfan on 15-02-2022.
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
@@ -11,6 +11,11 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.febinrukfan.fa_febinrukfansajidshakkeela_c0826772_android.R;
+import com.febinrukfan.fa_febinrukfansajidshakkeela_c0826772_android.models.Places;
+import com.febinrukfan.fa_febinrukfansajidshakkeela_c0826772_android.ui.PlacesInfoActivity;
+
 import java.util.List;
 
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.MyViewHolder> {
@@ -60,7 +65,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         return placesList.size();
     }
 
-    public class MyViewHolder extends RecyclerView.ViewHolder {
+    public static class MyViewHolder extends RecyclerView.ViewHolder {
 
         TextView pName, pDate, pVisited;
 

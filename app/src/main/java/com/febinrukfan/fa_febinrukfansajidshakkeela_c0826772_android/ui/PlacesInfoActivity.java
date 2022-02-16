@@ -1,4 +1,4 @@
-package com.febinrukfan.fa_febinrukfansajidshakkeela_c0826772_android;
+package com.febinrukfan.fa_febinrukfansajidshakkeela_c0826772_android.ui;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -7,7 +7,6 @@ import androidx.core.app.ActivityCompat;
 
 import android.Manifest;
 import android.app.AlertDialog;
-import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -17,8 +16,6 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -27,6 +24,8 @@ import com.directions.route.Route;
 import com.directions.route.RouteException;
 import com.directions.route.Routing;
 import com.directions.route.RoutingListener;
+import com.febinrukfan.fa_febinrukfansajidshakkeela_c0826772_android.db.PlacesRoomDb;
+import com.febinrukfan.fa_febinrukfansajidshakkeela_c0826772_android.R;
 import com.febinrukfan.fa_febinrukfansajidshakkeela_c0826772_android.databinding.ActivityPlacesInfoBinding;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
@@ -353,6 +352,8 @@ public class PlacesInfoActivity extends AppCompatActivity implements OnMapReadyC
     public void Findroutes(LatLng Start, LatLng End)
 
     {
+
+        Log.e(TAG,"start "+ Start+ "end "+ End);
         if(Start==null || End==null) {
             Toast.makeText(PlacesInfoActivity.this,"Unable to get location", Toast.LENGTH_LONG).show();
         }
@@ -382,7 +383,10 @@ public class PlacesInfoActivity extends AppCompatActivity implements OnMapReadyC
 
     @Override
     public void onRoutingStart() {
-        Toast.makeText(PlacesInfoActivity.this,"Finding Route...",Toast.LENGTH_LONG).show();
+
+        View parentLayout = findViewById(android.R.id.content);
+        Snackbar snackbar= Snackbar.make(parentLayout, "Finding Route...", Snackbar.LENGTH_LONG);
+        snackbar.show();
     }
 
     //If Route finding success..

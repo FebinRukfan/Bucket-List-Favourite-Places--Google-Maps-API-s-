@@ -1,4 +1,4 @@
-package com.febinrukfan.fa_febinrukfansajidshakkeela_c0826772_android;
+package com.febinrukfan.fa_febinrukfansajidshakkeela_c0826772_android.ui;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -6,15 +6,14 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Toast;
 
+import com.febinrukfan.fa_febinrukfansajidshakkeela_c0826772_android.db.PlacesRoomDb;
+import com.febinrukfan.fa_febinrukfansajidshakkeela_c0826772_android.R;
+import com.febinrukfan.fa_febinrukfansajidshakkeela_c0826772_android.adapter.RecyclerTouchListener;
+import com.febinrukfan.fa_febinrukfansajidshakkeela_c0826772_android.adapter.RecyclerViewAdapter;
 import com.febinrukfan.fa_febinrukfansajidshakkeela_c0826772_android.databinding.ActivityFavouriteListBinding;
-import com.febinrukfan.fa_febinrukfansajidshakkeela_c0826772_android.databinding.ActivityMainBinding;
-
-import java.util.ArrayList;
 
 public class FavouriteListActivity extends AppCompatActivity {
 

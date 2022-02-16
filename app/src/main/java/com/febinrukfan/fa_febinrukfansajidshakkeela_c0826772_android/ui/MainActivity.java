@@ -1,12 +1,11 @@
-package com.febinrukfan.fa_febinrukfansajidshakkeela_c0826772_android;
+package com.febinrukfan.fa_febinrukfansajidshakkeela_c0826772_android.ui;
 
-import androidx.activity.result.ActivityResultLauncher;
-import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
+import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.Manifest;
 import android.app.AlertDialog;
@@ -19,13 +18,14 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.SearchView;
 import android.widget.Toast;
 
+import com.febinrukfan.fa_febinrukfansajidshakkeela_c0826772_android.adapter.NearbyRVAdapter;
+import com.febinrukfan.fa_febinrukfansajidshakkeela_c0826772_android.db.PlacesRoomDb;
+import com.febinrukfan.fa_febinrukfansajidshakkeela_c0826772_android.R;
 import com.febinrukfan.fa_febinrukfansajidshakkeela_c0826772_android.databinding.ActivityMainBinding;
+import com.febinrukfan.fa_febinrukfansajidshakkeela_c0826772_android.models.Nearby;
 import com.google.android.gms.common.api.Status;
-import com.google.android.gms.location.FusedLocationProviderClient;
-import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapsInitializer;
@@ -33,16 +33,14 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.libraries.places.api.Places;
 import com.google.android.libraries.places.api.model.Place;
 import com.google.android.libraries.places.widget.Autocomplete;
 import com.google.android.libraries.places.widget.AutocompleteActivity;
-import com.google.android.libraries.places.widget.AutocompleteSupportFragment;
-import com.google.android.libraries.places.widget.listener.PlaceSelectionListener;
 import com.google.android.libraries.places.widget.model.AutocompleteActivityMode;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
@@ -63,7 +61,15 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
     private Boolean pVisited;
     public static final int MY_PERMISSIONS_REQUEST_LOCATION = 99;
 
+    public static final String[] names = new String[] {
+            "Groceries",
+            "Hospitals", "Gas Stations",
+            "Restaurants" };
 
+    public static final Integer[] images = { R.drawable.ic_baseline_shopping_cart_24,
+            R.drawable.ic_baseline_local_hospital_24, R.drawable.ic_baseline_local_gas_station_24, R.drawable.ic_baseline_fastfood_24 };
+
+    ArrayList<Nearby> nearbyList;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -118,6 +124,21 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                 }
             }
         });
+
+
+
+        nearbyList  = new ArrayList<Nearby>();
+        for (int i = 0; i < names.length; i++) {
+            Nearby item = new Nearby(names[i], images[i]);
+            nearbyList.add(item);
+        }
+
+        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
+        layoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
+        NearbyRVAdapter adapter = new NearbyRVAdapter(this, nearbyList);
+        binding.rvNearby.setLayoutManager(layoutManager);
+        binding.rvNearby.setAdapter(adapter);
+
         binding.btnAddNew.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -125,7 +146,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                     if(database.placesDao().checkPlaceId(pPlaceId)!=null){
                         Toast.makeText(MainActivity.this, "Same Place already exists", Toast.LENGTH_SHORT).show();
                     }else {
-                        com.febinrukfan.fa_febinrukfansajidshakkeela_c0826772_android.Places places = new com.febinrukfan.fa_febinrukfansajidshakkeela_c0826772_android.Places();
+                        com.febinrukfan.fa_febinrukfansajidshakkeela_c0826772_android.models.Places places = new com.febinrukfan.fa_febinrukfansajidshakkeela_c0826772_android.models.Places();
                         places.setPlaces_id(pPlaceId);
                         places.setPlaces_name(pName);
                         places.setPlaces_address(pAddrss);
@@ -155,7 +176,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         binding.btnFav.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(MainActivity.this,FavouriteListActivity.class));
+                startActivity(new Intent(MainActivity.this, FavouriteListActivity.class));
             }
         });
 

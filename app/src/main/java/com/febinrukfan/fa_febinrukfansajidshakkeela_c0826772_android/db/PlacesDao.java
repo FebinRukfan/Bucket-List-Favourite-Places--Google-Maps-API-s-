@@ -1,13 +1,13 @@
-package com.febinrukfan.fa_febinrukfansajidshakkeela_c0826772_android;// Created by FebinRukfan on 10-02-2022.
+package com.febinrukfan.fa_febinrukfansajidshakkeela_c0826772_android.db;// Created by FebinRukfan on 10-02-2022.
 
 
-import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Insert;
 import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
 
-import java.util.ArrayList;
+import com.febinrukfan.fa_febinrukfansajidshakkeela_c0826772_android.models.Places;
+
 import java.util.List;
 
 
@@ -17,15 +17,9 @@ public abstract class PlacesDao {
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     public abstract void insert(Places places);
 
-    @Query("SELECT * FROM places_table ORDER BY places_name ASC")
+    @Query("SELECT * FROM places_table ORDER BY id ASC")
     public abstract List<Places> getAllPlaces();
-//
-//    @Query("SELECT * FROM product_table WHERE product_id=:id")
-//    public abstract LiveData<List<Product>> getProductById(int id);
-//
-//    @Query("SELECT * FROM product_table ORDER BY product_id ASC limit 1")
-//    public abstract LiveData<List<Product>> getFirstProduct();
-//
+
     @Query("DELETE FROM places_table")
     public abstract void deleteAll();
 

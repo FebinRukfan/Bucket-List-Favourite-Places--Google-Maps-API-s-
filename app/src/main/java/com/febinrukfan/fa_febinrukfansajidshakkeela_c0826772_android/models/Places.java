@@ -1,4 +1,4 @@
-package com.febinrukfan.fa_febinrukfansajidshakkeela_c0826772_android;// Created by FebinRukfan on 15-02-2022.
+package com.febinrukfan.fa_febinrukfansajidshakkeela_c0826772_android.models;// Created by FebinRukfan on 15-02-2022.
 
 import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;

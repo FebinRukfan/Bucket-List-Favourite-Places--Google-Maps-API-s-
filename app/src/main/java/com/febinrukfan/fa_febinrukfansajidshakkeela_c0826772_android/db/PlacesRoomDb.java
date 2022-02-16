@@ -1,4 +1,4 @@
-package com.febinrukfan.fa_febinrukfansajidshakkeela_c0826772_android;
+package com.febinrukfan.fa_febinrukfansajidshakkeela_c0826772_android.db;
 // Created by FebinRukfan on 14-02-2022.
 
 import android.content.Context;
@@ -9,6 +9,8 @@ import androidx.room.Room;
 import androidx.room.RoomDatabase;
 import androidx.sqlite.db.SupportSQLiteDatabase;
 
+
+import com.febinrukfan.fa_febinrukfansajidshakkeela_c0826772_android.models.Places;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;

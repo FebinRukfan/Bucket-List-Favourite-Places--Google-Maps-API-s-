@@ -14,10 +14,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FA_FebinRukfanSajidShakkeela_C0826772_android">
         <activity
-            android:name=".PlacesInfoActivity"
+            android:name=".ui.PlacesInfoActivity"
             android:exported="false" />
         <activity
-            android:name=".FavouriteListActivity"
+            android:name=".ui.FavouriteListActivity"
             android:exported="false" />
         <!--
              TODO: Before you run your application, you need a Google Maps API key.
@@ -35,7 +35,7 @@
             android:value="@string/api_key" />
 
         <activity
-            android:name=".MainActivity"
+            android:name=".ui.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
