@@ -2,7 +2,6 @@ package com.febinrukfan.fa_febinrukfansajidshakkeela_c0826772_android;// Created
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -28,7 +27,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     @NonNull
     @Override
     public RecyclerViewAdapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int viewType) {
-        View view =    LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.places_row_item, viewGroup, false);
+        View view =    LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.row_item, viewGroup, false);
         return new MyViewHolder(view);    }
 
     @Override

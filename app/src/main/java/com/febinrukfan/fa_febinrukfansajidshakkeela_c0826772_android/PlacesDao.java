@@ -29,6 +29,9 @@ public abstract class PlacesDao {
     @Query("DELETE FROM places_table")
     public abstract void deleteAll();
 
+    @Query("DELETE FROM places_table WHERE id=:pId")
+    public abstract void deleteById(Long pId);
+
     @Query("SELECT places_id FROM places_table WHERE places_id=:place_id")
     public abstract String  checkPlaceId(String place_id);//
 
