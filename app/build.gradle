@@ -45,6 +45,8 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
 
     implementation 'com.google.android.libraries.places:places:2.5.0'
+    implementation 'com.github.jd-alexander:library:1.1.0'
+
 
     // Room components
     implementation "androidx.room:room-runtime:$room_version"

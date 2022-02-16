@@ -23,13 +23,13 @@
         android:id="@+id/linearLayoutCompat"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:padding="10dp"
         android:orientation="vertical"
+        android:padding="10dp"
         android:weightSum="3"
-        app:layout_constraintBottom_toTopOf="@+id/btnUpdate"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mvInfo">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -42,8 +42,9 @@
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1.5"
                 android:layout_gravity="center_vertical"
+                android:layout_weight="1.5"
+                android:textStyle="bold"
 
                 android:text="@string/added_date"
                 android:textColor="@color/black"
@@ -54,9 +55,10 @@
 
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="3.5"
                 android:layout_gravity="center_vertical"
+                android:layout_weight="3.5"
                 android:textColor="@color/black"
+                android:textStyle="bold"
 
                 android:textSize="18sp" />
 
@@ -74,10 +76,11 @@
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1.5"
-                android:text="@string/address"
-                android:paddingLeft="10dp"
                 android:layout_gravity="center_vertical"
+                android:layout_weight="1.5"
+                android:paddingLeft="10dp"
+                android:text="@string/address"
+                android:textStyle="bold"
 
                 android:textColor="@color/black"
                 android:textSize="18sp" />
@@ -86,14 +89,16 @@
                 android:id="@+id/txtAddress"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="3.5"
-                android:inputType="textMultiLine"
-
                 android:layout_gravity="center_vertical"
+                android:layout_weight="3.5"
+                android:textStyle="bold"
+
+                android:inputType="textMultiLine"
                 android:textColor="@color/black"
                 android:textSize="18sp" />
 
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="40dp"
@@ -106,12 +111,13 @@
                 android:id="@+id/chkVisit"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/visit"
-                android:layout_marginLeft="10sp"
-
                 android:layout_gravity="center_vertical"
+                android:layout_marginLeft="10sp"
+                android:textStyle="bold"
+
+                android:text="@string/visit"
                 android:textColor="@color/black"
-                android:textSize="18sp"/>
+                android:textSize="18sp" />
 
         </LinearLayout>
 
@@ -122,16 +128,38 @@
         android:layout_width="0dp"
         android:layout_height="50dp"
         android:layout_marginLeft="70dp"
+        android:layout_marginTop="5dp"
         android:layout_marginRight="70dp"
+        android:visibility="gone"
         android:layout_marginBottom="5dp"
         android:layout_weight="1"
-        android:text="@string/update"
+        android:backgroundTint="@color/mild_green"
         android:drawableLeft="@drawable/ic_baseline_edit_24"
+        android:text="@string/update"
         android:textAllCaps="false"
         android:textColor="@color/white"
-        android:backgroundTint="@color/mild_green"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayoutCompat" />
+
+    <Button
+        android:id="@+id/btnDirections"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="70dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="70dp"
+        android:layout_marginBottom="5dp"
+        android:layout_weight="1"
+        android:backgroundTint="@color/mild_green"
+        android:text="@string/get_directions"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayoutCompat" />
 </androidx.constraintlayout.widget.ConstraintLayout>
