@@ -69,6 +69,7 @@ public class FavouriteListActivity extends AppCompatActivity {
 
                                 Intent places = new Intent(FavouriteListActivity.this, PlacesInfoActivity.class);
                                 places.putExtra("id",String.valueOf(database.placesDao().getAllPlaces().get(position).getId()));
+                                places.putExtra("edit","edit_mode");
                                 startActivity(places);
 
                                 break;

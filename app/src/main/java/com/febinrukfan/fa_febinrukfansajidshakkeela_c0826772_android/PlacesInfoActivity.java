@@ -65,7 +65,7 @@ public class PlacesInfoActivity extends AppCompatActivity implements OnMapReadyC
     private String pName,pAddrss,pPlaceId,pDate;
     private Double pLat,pLong;
     private Boolean pVisited;
-    String pId;
+    String pId,editMode;
     private final String TAG = this.getClass().getName();
 
     //current and destination location objects
@@ -91,8 +91,18 @@ public class PlacesInfoActivity extends AppCompatActivity implements OnMapReadyC
         PlacesRoomDb database = PlacesRoomDb.getInstance(this);
 
         pId = getIntent().getStringExtra("id");
-        Log.v(TAG,"here  " +pId);
+        editMode = getIntent().getStringExtra("edit");
 
+        if(editMode!=null&& editMode.equals("edit_mode")){
+            binding.btnDirections.setVisibility(View.GONE);
+            binding.btnUpdate.setVisibility(View.VISIBLE);
+            binding.chkVisit.setVisibility(View.VISIBLE);
+
+        }else {
+            binding.btnDirections.setVisibility(View.VISIBLE);
+            binding.btnUpdate.setVisibility(View.GONE);
+            binding.chkVisit.setVisibility(View.GONE);
+        }
 
         getSupportActionBar().setTitle(database.placesDao().getPlaceName(Long.valueOf(pId)));
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
