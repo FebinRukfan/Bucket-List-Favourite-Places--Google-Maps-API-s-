@@ -1,3 +1,7 @@
 # FA_FebinRukfanSajidShakkeela_C0826772_Android
 
-<img src="https://github.com/FebinRukfan/FA_FebinRukfanSajidShakkeela_C0826772_Android/blob/screen_shots/screen_shots/Screenshot_20220215_225623.png" width="100">
+<img src="https://github.com/FebinRukfan/FA_FebinRukfanSajidShakkeela_C0826772_Android/blob/screen_shots/screen_shots/Screenshot_20220215_225623.png" width="200">
+
+# FA_FebinRukfanSajidShakkeela_C0826772_Android
+
+<img src="https://github.com/FebinRukfan/FA_FebinRukfanSajidShakkeela_C0826772_Android/blob/screen_shots/screen_shots/Screenshot_20220215_225623.png" width="200">
